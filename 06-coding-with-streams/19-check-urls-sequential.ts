@@ -1,9 +1,10 @@
 import { createReadStream, createWriteStream } from 'node:fs';
 import { createInterface } from 'node:readline';
 import { pipeline } from 'node:stream/promises';
-import { UnorderedConcurrentStream } from './19-unordered-concurrent-stream.ts'
+import { Transform } from 'node:stream';
 
 const inputFile = createReadStream(process.argv[2])
+const outputFile = createWriteStream('results.txt')
 const fileLines = createInterface({
   input: inputFile,
   terminal: false,
@@ -11,24 +12,22 @@ const fileLines = createInterface({
 
 const TIMEOUT_MS = 5 * 1000
 
-const checkUrls = new UnorderedConcurrentStream(
-  async function transform(url, _, push, done) {
+const checkUrls = new Transform({
+  objectMode: true,
+  async transform(url: string, _, cb) {
     console.log({ url })
 
-    if (!url) return done()
+    if (!url) return cb()
 
     try {
       await fetch(url, { method: 'HEAD', signal: AbortSignal.timeout(TIMEOUT_MS) })
-      push(`${url} is up\n`)
-    } catch (err) {
-      push(`${url} is down\n`)
-    } finally {
-      done()
+      cb(null, `${url} is up\n`)
+    } catch (e) {
+      cb(null, `${url} is down\n`)
     }
   }
-)
+})
 
-const outputFile = createWriteStream('results.txt')
 
 try {
   await pipeline(

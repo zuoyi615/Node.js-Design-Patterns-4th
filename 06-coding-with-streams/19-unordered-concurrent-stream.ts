@@ -11,12 +11,13 @@ export class UnorderedConcurrentStream extends Transform {
   constructor(customTransform: CustomTransform, options?: TransformOptions) {
     super({ objectMode: true, ...(options ?? {}) })
     this.#customTransform = customTransform
-    // this.#running = 0
-    // this.#terminalCallback = null
+    this.#running = 0
+    this.#terminalCallback = null
   }
 
   _transform(chunk: any, enc: string, done: TransformCallback) {
     this.#running++
+
     try {
       this.#customTransform(
         chunk,
@@ -26,26 +27,25 @@ export class UnorderedConcurrentStream extends Transform {
       )
     } catch (err) {
       this.#onComplete(err as Error)
+    } finally {
+      done()
     }
-
-    done()
   }
 
   _final(done: TransformCallback) {
-    if (this.#running > 0) {
-      this.#terminalCallback = done
-      return
-    }
+    if (this.#running > 0) return this.#terminalCallback = done
     done()
   }
 
   #onComplete(err?: Error | null) {
     this.#running--
+
     if (err) {
       this.emit('error', err)
       this.destroy(err)
       return
     }
+
     if (this.#running === 0) this.#terminalCallback?.()
   }
 }
