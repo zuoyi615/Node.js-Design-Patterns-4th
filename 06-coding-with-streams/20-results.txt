@@ -1,0 +1,50 @@
+https://twitter.com is up
+https://loige.co is up
+https://instagram.com is up
+https://google.com is up
+https://linkedin.com is up
+https://apple.com is up
+https://youtube.com is up
+https://facebook.com is up
+https://tiktok.com is up
+https://wikipedia.org is up
+https://whatsapp.com is up
+https://zoom.us is up
+https://netflix.com is up
+https://amazon.com is up
+https://reddit.com is up
+https://aliexpress.com is up
+https://microsoft.com is up
+https://baidu.com is up
+https://bing.com is up
+https://vk.com is up
+https://mario.fyi is down: The operation was aborted due to timeout
+http://thiswillbedownforsure.com is down: The operation was aborted due to timeout
+https://nytimes.com is up
+https://ebay.com is up
+https://bbc.com is up
+https://adobe.com is down: fetch failed
+https://cnn.com is up
+https://weather.com is up
+https://wordpress.com is up
+https://yahoo.com is down: The operation was aborted due to timeout
+https://tripadvisor.com is up
+https://github.com is up
+https://pinterest.com is up
+https://medium.com is up
+https://spotify.com is up
+https://etsy.com is up
+https://fandom.com is up
+https://canva.com is up
+https://dropbox.com is up
+https://yelp.com is up
+https://salesforce.com is up
+https://patreon.com is up
+https://playstation.com is up
+https://shopify.com is up
+https://weibo.com is up
+https://telegram.org is up
+https://duckduckgo.com is up
+https://stackoverflow.com is up
+https://snapchat.com is up
+https://cloudflare.com is up
