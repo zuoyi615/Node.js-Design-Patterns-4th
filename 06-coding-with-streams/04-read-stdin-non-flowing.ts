@@ -7,7 +7,7 @@ process
   .on('readable', () => {
     let chunk: Buffer
     console.log('New data available')
-    while ((chunk = process.stdin.read()) !== null) {
+    while ((chunk = process.stdin.read()) !== null) { // Readable.read()
       console.log(`Chunk read (${chunk.length} bytes): "${chunk.toString().replace('\n', '')}"`)
     }
   })

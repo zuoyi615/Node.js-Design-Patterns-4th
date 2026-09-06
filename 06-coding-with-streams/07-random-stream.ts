@@ -10,7 +10,7 @@ export class RandomStream extends Readable {
     super(options)
   }
 
-  _read(size: number) {
+  _read(size: number) { // push data into interal readableBuffer, limited to highWaterMark
     const chunk = chance.string({ length: size })
     // should check result
     // if false, stream has reached the `highWaterMark` limit
