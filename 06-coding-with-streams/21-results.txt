@@ -1,0 +1,50 @@
+https://mario.fyi is up
+https://loige.co is up
+http://thiswillbedownforsure.com is down: fetch failed
+https://google.com is down: The operation was aborted due to timeout
+https://youtube.com is down: The operation was aborted due to timeout
+https://facebook.com is down: The operation was aborted due to timeout
+https://twitter.com is down: The operation was aborted due to timeout
+https://instagram.com is down: The operation was aborted due to timeout
+https://linkedin.com is up
+https://wikipedia.org is down: The operation was aborted due to timeout
+https://amazon.com is up
+https://apple.com is up
+https://whatsapp.com is down: fetch failed
+https://tiktok.com is down: The operation was aborted due to timeout
+https://yahoo.com is up
+https://microsoft.com is up
+https://reddit.com is down: The operation was aborted due to timeout
+https://netflix.com is up
+https://zoom.us is up
+https://ebay.com is up
+https://baidu.com is up
+https://vk.com is up
+https://aliexpress.com is up
+https://bing.com is up
+https://nytimes.com is down: The operation was aborted due to timeout
+https://cnn.com is up
+https://bbc.com is down: The operation was aborted due to timeout
+https://spotify.com is down: The operation was aborted due to timeout
+https://adobe.com is up
+https://wordpress.com is up
+https://weather.com is up
+https://tripadvisor.com is up
+https://pinterest.com is down: fetch failed
+https://github.com is down: The operation was aborted due to timeout
+https://salesforce.com is up
+https://medium.com is down: fetch failed
+https://etsy.com is down: The operation was aborted due to timeout
+https://shopify.com is up
+https://canva.com is up
+https://fandom.com is down: The operation was aborted due to timeout
+https://patreon.com is down: The operation was aborted due to timeout
+https://playstation.com is up
+https://yelp.com is up
+https://snapchat.com is down: fetch failed
+https://telegram.org is down: The operation was aborted due to timeout
+https://dropbox.com is down: The operation was aborted due to timeout
+https://stackoverflow.com is up
+https://cloudflare.com is up
+https://weibo.com is up
+https://duckduckgo.com is down: The operation was aborted due to timeout
