@@ -12,15 +12,17 @@ const streamT = new Transform({
 
 const streamW = createWriteStream('package-uppercase.json')
 
-// const pipelineReturn = pipeline(
-//   streamR,
-//   streamT,
-//   streamW,
-//   () => { }
-// )
+const pipelineReturn = pipeline(
+  streamR,
+  streamT,
+  streamW,
+  () => { }
+)
 
-// assert.equal(streamW, pipelineReturn)
+// console.log(streamW === pipelineReturn) // true
+assert.equal(streamW, pipelineReturn)
 
 const pipeReturn = streamR.pipe(streamT).pipe(streamW)
 
+// console.log(streamW === pipeReturn) // true
 assert.equal(streamW, pipeReturn)
