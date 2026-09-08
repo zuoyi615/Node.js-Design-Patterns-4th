@@ -15,6 +15,15 @@ function createAddingLineEnd() {
   })
 }
 
+function onSourceEnd() {
+  endCount++
+
+  if (endCount === sources.length) {
+    destStream.end()
+    console.log(`${dest} created`)
+  }
+}
+
 for (const source of sources) {
   const sourceStream = createReadStream(source, { highWaterMark: 16 })
   const lineStream = Readable.from(
@@ -25,16 +34,10 @@ for (const source of sources) {
 
   )
   const addLineEnd = createAddingLineEnd()
-  lineStream.on('end', () => {
-    if (++endCount === sources.length) {
-      destStream.end()
-      console.log(`${dest} created`)
-    }
-  })
+  lineStream.on('end', onSourceEnd)
 
-  lineStream
-    .pipe(addLineEnd)
-    .pipe(destStream, { end: false })
+  lineStream.pipe(addLineEnd).pipe(destStream, { end: false })
 }
 
-// node 24-merging-streams <dest> <file1> <file2> <file....>
+// the content order of files is not guaranteed.
+// node 24-merging-streams.ts <dest> <file1> <file2> <file....>
