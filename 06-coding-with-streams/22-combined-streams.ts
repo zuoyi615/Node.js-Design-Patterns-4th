@@ -8,12 +8,10 @@ function createKey(password: string) {
 
 export function createCompressAndEncrypt(password: string, iv: BinaryLike): Duplex {
   const key = createKey(password)
-  const combinedStream = compose(
+  return compose(
     createGzip(),
     createCipheriv('aes192', key, iv),
   )
-
-  return combinedStream
 }
 
 export function createDecryptAndDecompress(password: string, iv: BinaryLike) {
