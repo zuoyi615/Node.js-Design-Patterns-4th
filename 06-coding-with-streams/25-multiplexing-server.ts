@@ -2,6 +2,10 @@ import { type Readable, type Writable } from 'node:stream'
 import { createWriteStream } from 'node:fs'
 import { createServer } from 'node:net'
 
+// if we want to multiplex and demultiplex with object streams, `objectMode: true`
+// we should change these code to make it work
+// and we can use npm package `ternary-stream` to help us with implementing, another package: `through2`
+
 function demultiplexChannel(source: Readable, destinations: Writable[]) {
   let currentChannel: number | undefined
   let currentLength: number | undefined
