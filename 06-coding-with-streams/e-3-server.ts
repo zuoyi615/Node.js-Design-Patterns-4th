@@ -12,7 +12,7 @@ const server = createServer(socket => {
     if (!writeStream) {
       const filename = chunk.toString()
       writeStream = createWriteStream(join(__dirname, filename))
-      console.log('Started accepting file', filename)
+      console.log(`Started accepting file: \`${filename}\``,)
       return
     }
 
