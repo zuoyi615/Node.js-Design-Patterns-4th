@@ -22,7 +22,7 @@ export class ResultToString extends Transform {
   _transform(list: CrimesByParamItem[], _: string, cb: TransformCallback) {
     let text = `\n${this.#label}\n`
     for (const item of list) {
-      text = text + `${item[0]}\t${item[1]}\n`
+      text = text + `${item[0].padEnd(32, ' ')}\t${item[1].toString().padStart(20, ' ')}\n`
     }
     cb(null, text)
   }

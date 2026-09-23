@@ -35,7 +35,7 @@ export class TopCategoryPerArea extends Transform {
     try {
       const res = Object.entries(this.#countCategoriesByArea).map(([key, value]) => {
         const maxVal = Object.entries(value).sort(([, a], [, b]) => b - a)[0];
-        return [`${key}, ${maxVal[0]}`, maxVal[1]]
+        return [`${key}: ${maxVal[0]}`, maxVal[1]]
       })
       cb(null, res)
 
