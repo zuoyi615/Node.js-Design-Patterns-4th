@@ -4,7 +4,7 @@ import { CountCrimesByParam } from './e-2-count-crimes-by-param.ts'
 import { ResultToString } from './e-2-result-to-string.ts'
 import { pipeline } from 'node:stream'
 
-const filename = '/home/zuoyi/git/london_crime_by_lsoa.csv'
+const filename = process.argv[2]
 const readStream = createReadStream(filename)
 const csvParser = parse({
   columns: true,
