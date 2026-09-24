@@ -20,7 +20,8 @@ function iterate(index: number) {
 
   const task = tasks[index]
 
-  task(() => iterate(index + 1))
+  // task(() => iterate(index + 1))
+  task(iterate.bind(null, index + 1))
 }
 
 function finish() {

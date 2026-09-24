@@ -1,3 +1,3 @@
-import { someFeature } from './some-module.cjs'
+import { someFeature } from './some-module.cjs' // error
 
 console.log(someFeature)

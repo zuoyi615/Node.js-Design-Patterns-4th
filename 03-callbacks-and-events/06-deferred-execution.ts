@@ -3,7 +3,7 @@ import { URL } from 'node:url'
 
 const cache = new Map()
 
-function inconsistentRead(filename: string, cb: (data: any) => void) {
+function consistentRead(filename: string, cb: (data: any) => void) {
   if (cache.has(filename)) {
     process.nextTick(() => {
       cb(cache.get(filename))
@@ -20,7 +20,7 @@ function inconsistentRead(filename: string, cb: (data: any) => void) {
 function createFileReader(filename: string) {
   const listeners: Function[] = []
 
-  inconsistentRead(filename, value => {
+  consistentRead(filename, value => {
     for (const listener of listeners) {
       listener(value)
     }

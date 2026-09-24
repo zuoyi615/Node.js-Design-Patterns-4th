@@ -13,6 +13,8 @@ function tick(delay: number, callback: (err: Error | null, count: number) => voi
     count++
   }
 
+  // pattern: sequential timer with setTimeout
+  // setInterval doesn't work properly
   setTimeout(function recursiveTimeout() {
     if (Date.now() - startTime >= delay) {
       return callback(null, count)

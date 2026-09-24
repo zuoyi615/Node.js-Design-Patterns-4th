@@ -30,7 +30,7 @@ function download(url: string, cb: (err: Error | null, data?: any) => void) {
   return emitter
 }
 
-const downloadEmitter = download('https://www.nodejsdesignpatterns.com/img/node-js-design-patterns.jpg', (err, data) => {
+const downloadEmitter = download('https://nodejsdesignpatterns.com/_astro/book-cover.IlaUYuAk_D2kKo.avif', (err, data) => {
   if (err) {
     return console.error(`Download failed: ${err.message}`)
   }

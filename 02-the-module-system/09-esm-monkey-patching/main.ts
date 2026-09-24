@@ -1,7 +1,7 @@
 import { fileURLToPath } from 'node:url'
 import { dirname } from 'node:path';
 import { logger } from "./logger.ts";
-import './colorize-logger.ts'
+import './colorize-logger.ts' // monkey patching
 
 logger.info('Hello, World!')
 

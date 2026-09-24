@@ -8,7 +8,17 @@ import { URL } from "node:url";
 console.log('A');
 
 const filePath = new URL('file-B.json', import.meta.url)
+
+process.nextTick(() => {
+  console.log('B');
+});
+
 readFile(filePath, 'utf8', (err, data) => {
+  console.log({
+    data,
+    err,
+  })
+
   process.nextTick(() => {
     console.log('nextTick');
   });
@@ -22,4 +32,4 @@ readFile(filePath, 'utf8', (err, data) => {
   });
 })
 
-console.log('B');
+console.log('C');
