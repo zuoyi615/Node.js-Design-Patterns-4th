@@ -13,19 +13,19 @@ const tasks = [
   }
 ]
 
-function iterate(index: number) {
+function iterate(index: number, cb: () => void) {
   if (index === tasks.length) {
-    return finish()
+    return cb()
   }
 
   const task = tasks[index]
 
-  // task(() => iterate(index + 1))
-  task(iterate.bind(null, index + 1))
+  // task(() => iterate(index + 1, cb))
+  task(iterate.bind(null, index + 1, cb))
 }
 
 function finish() {
   console.log('All tasks executed')
 }
 
-iterate(0)
+iterate(0, finish)
