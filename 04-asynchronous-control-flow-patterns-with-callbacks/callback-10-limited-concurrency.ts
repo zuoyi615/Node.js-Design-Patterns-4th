@@ -1,11 +1,11 @@
 type Task = ReturnType<typeof makeSampleTask>
 
 export function makeSampleTask(name: string) {
-  return (cb: (err: Error | null) => void) => {
+  return (cb: (err: Error | null, value: string) => void) => {
     console.log(`${name} started`)
     setTimeout(() => {
       console.log(`[${name}] completed`)
-      cb(null)
+      cb(null, name)
     }, Math.random() * 2000)
   }
 }
@@ -21,20 +21,23 @@ const tasks: Task[] = [
   makeSampleTask('Task 8'),
 ]
 
-type Callback = (err: Error | null) => void
+type Callback = (err: Error | null, results?: string[]) => void
 
 function runWithConcurrency(tasks: Task[], limit: number, cb: Callback) {
   let index = 0
   let completed = 0
   let running = 0
+  const results: string[] = []
 
   function next() {
     while (running < limit && index < tasks.length) {
+      const i = index
       const task = tasks[index++]
       running++
-      task(err => {
+      task((err, value) => {
         if (err) return cb(err)
-        if (++completed === tasks.length) return cb(null)
+        results[i] = value
+        if (++completed === tasks.length) return cb(null, results)
         running--
         next()
       })
@@ -44,10 +47,12 @@ function runWithConcurrency(tasks: Task[], limit: number, cb: Callback) {
   next()
 }
 
-runWithConcurrency(tasks, 3, err => {
+runWithConcurrency(tasks, 3, (err, results) => {
   if (err) {
     return console.log(err)
   }
+
+  console.log({ results })
 
   console.log('All tasks finished')
 })

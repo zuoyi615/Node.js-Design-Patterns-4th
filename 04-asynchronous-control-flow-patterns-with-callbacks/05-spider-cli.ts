@@ -1,4 +1,4 @@
-import { spider } from "./06-concurrent-web-spider-links.ts";
+import { spider } from "./05-concurrent-spider.ts";
 
 // node spider-cli <link> [maxDepth]
 
