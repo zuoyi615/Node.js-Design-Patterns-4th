@@ -30,7 +30,7 @@ export function promiseAll(list: Promise<unknown>[]) {
 function delay(millisecends: number) {
   return new Promise(resolve => {
     setTimeout(() => {
-      console.log('Resolved ${millisecends}')
+      console.log(`Resolved ${millisecends}`)
       resolve(millisecends)
     }, millisecends)
   })

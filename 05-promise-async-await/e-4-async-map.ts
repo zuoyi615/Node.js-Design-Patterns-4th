@@ -1,12 +1,13 @@
-type Callback = (promise: Promise<unknown>, index: number, list: Promise<unknown>[]) => unknown
+type Callback = (promise: Promise<unknown>, index: number, list: Promise<unknown>[]) => Promise<unknown>
 
 export async function asyncMap(list: Promise<unknown>[], cb: Callback, concurrency = 2) {
   const { length: total } = list
   const results = new Array(total)
   let index = 0
 
-  async function worker() {
+  async function worker(name: string) {
     while (index < total) {
+      console.log({ name })
       const currentIndex = index++
       const promise = list[currentIndex]
 
@@ -22,7 +23,7 @@ export async function asyncMap(list: Promise<unknown>[], cb: Callback, concurren
 
   const activeLimit = Math.min(concurrency, total)
   for (let i = 0; i < activeLimit; i++) {
-    workers.push(worker())
+    workers.push(worker(`worker${i}`))
   }
 
   await Promise.all(workers)
@@ -38,6 +39,12 @@ function delay(millisecends: number) {
 
 const results = await asyncMap(
   [
+    // delay(400),
+    // delay(300),
+    // delay(250),
+    // delay(200),
+    // delay(150),
+    // delay(100),
     delay(50),
     delay(100),
     delay(150),
@@ -50,7 +57,7 @@ const results = await asyncMap(
     const result = await item as unknown as number
     return result * 2
   },
-  2
+  3
 )
 
 console.log(results)
