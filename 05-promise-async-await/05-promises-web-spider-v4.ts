@@ -42,12 +42,10 @@ function download(url: string, filename: string) {
 const spidering = new Set()
 
 function spiderLinks(url: string, content: string, maxDepth: number, queue: TaskQueue) {
-  let promise = Promise.resolve<void[]>([])
-
-  if (maxDepth === 0) return promise
+  if (maxDepth === 0) return
 
   const links = getPageLinks(url, content)
-  if (links.length === 0) return promise
+  if (links.length === 0) return
 
   for (const link of links) {
     if (!spidering.has(link)) {
@@ -55,6 +53,4 @@ function spiderLinks(url: string, content: string, maxDepth: number, queue: Task
       spidering.add(link)
     }
   }
-
-  return promise
 }
