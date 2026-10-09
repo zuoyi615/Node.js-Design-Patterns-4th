@@ -27,7 +27,7 @@ export function listNestedFiles(dir: string, cb: Callback) {
       if (err) {
         const { code } = err
         if (code !== 'ENOTDIR') return done(err, null)
-        state.list.push(dir)
+        state.list.push(dir) // path exists, but is not a directory, which means a file
       } else {
         for (const file of files) {
           const filePath = join(dir, file)
@@ -49,7 +49,7 @@ export function listNestedFiles(dir: string, cb: Callback) {
   visit(dir)
 }
 
-listNestedFiles('/home/zuoyi/git/Node.js_design_patterns/03-callbacks-and-events', (err, list) => {
+listNestedFiles('/home/zuoyi/git/Node.js-Design-Patterns-4th/03-callbacks-and-events', (err, list) => {
   if (err) {
     console.log(err)
     return
