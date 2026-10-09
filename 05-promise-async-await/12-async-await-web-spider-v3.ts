@@ -28,6 +28,7 @@ async function download(url: string, filename: string) {
   return content
 }
 
+// concurrency without limit
 async function spiderLinks(url: string, content: string, maxDepth: number) {
   let promise = Promise.resolve()
 

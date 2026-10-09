@@ -40,6 +40,7 @@ async function spiderLinks(url: string, content: string, maxDepth: number, queue
   const links = getPageLinks(url, content)
   if (links.length === 0) return promise
 
+  // queued concurrency
   for (const link of links) {
     if (!spidering.has(link)) {
       queue.pushTask(spider.bind(null, link, maxDepth - 1, queue))

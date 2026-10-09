@@ -35,6 +35,7 @@ async function spiderLinks(url: string, content: string, maxDepth: number) {
   const links = getPageLinks(url, content)
   if (links.length === 0) return promise
 
+  // sequential executions
   for (const link of links) {
     await spider(link, maxDepth - 1)
   }
