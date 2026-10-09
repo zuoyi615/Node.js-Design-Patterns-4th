@@ -33,7 +33,7 @@ export function recursiveFind(dir: string, keyword: string, cb: Callback) {
         visit(filePath, keyword)
       }
 
-      checkCounter()
+      checkCounter() // if files are empty, finish tasks
     })
   }
 
