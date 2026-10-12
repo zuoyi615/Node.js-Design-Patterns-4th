@@ -1,0 +1,11 @@
+import superagent from 'superagent' // v10.1.1
+
+// builder pattern, thenable
+superagent
+  .post('https://jsonplaceholder.typicode.com/posts')
+  .send({ name: 'John Doe', role: 'user' })
+  .set('accept', 'json')
+  .then(response => {
+    // deal with the response
+    console.log(response.body)
+  })

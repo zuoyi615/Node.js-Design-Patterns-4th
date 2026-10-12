@@ -16,3 +16,16 @@ Its main advantage is its ability to decouple the creation of an object from a s
 - A mechanism to enforce encapsulation: function scopes and closures
 
 ## Builder Pattern
+
+Builder is a creational pattern that simplifies the creation of complex objects by providing a fluent interface.
+
+situation: a class with a constructor that has a long list of arguments or takes many complex parameters as input.
+
+### General rules for implementating the Builder pattern
+
+- the main objective is to break down a complex constructor into multiple, more readable, and more manageable steps.
+- try to create builder methods that can set multiple related parameters at once
+- Deduce and implicitly set parameters based on the values received as input by a setter method
+- If necessary, it’s possible to further manipulate the parameters.
+- Consider providing sensible default values for parameters that are not explicitly set
+
