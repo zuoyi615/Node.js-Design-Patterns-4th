@@ -38,3 +38,23 @@ Revealing constructor pattern solves a tricky problem:
 > 1. Creating objects that can be modified only at creation time
 > 2. Creating objects whose custom behavior only can be defined only at creation time
 > 3. Create objects that can be initialized only once at creation time
+
+## Singleton
+
+Reasons to use a single instance:
+
+- For sharing stateful information
+- For optimizing resource usage
+- To synchronize access to a resource
+
+```ts
+import { Database } from './db.ts'
+
+// Singleton in current package
+// this implementation isn’t a strict implementation of the Singleton pattern
+export const dbInstance = new Database('my-app-db', {
+  url: 'localhost:5432',
+  username: 'user',
+  password: 'password',
+})
+```
