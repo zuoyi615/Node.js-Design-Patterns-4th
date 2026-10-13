@@ -58,3 +58,8 @@ export const dbInstance = new Database('my-app-db', {
   password: 'password',
 })
 ```
+
+## Wiring modules
+
+- Singleton dependencies
+- Dependency injection
