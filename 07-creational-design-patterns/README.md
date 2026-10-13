@@ -29,3 +29,12 @@ situation: a class with a constructor that has a long list of arguments or takes
 - If necessary, it’s possible to further manipulate the parameters.
 - Consider providing sensible default values for parameters that are not explicitly set
 
+## Revealing Constructor Pattern
+
+Revealing constructor pattern solves a tricky problem:
+
+> How can we "reveal" some private functionality of an object only at the moment of the object's creation.
+> Allows scenarios:
+> 1. Creating objects that can be modified only at creation time
+> 2. Creating objects whose custom behavior only can be defined only at creation time
+> 3. Create objects that can be initialized only once at creation time
