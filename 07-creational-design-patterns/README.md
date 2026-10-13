@@ -63,3 +63,16 @@ export const dbInstance = new Database('my-app-db', {
 
 - Singleton dependencies
 - Dependency injection
+
+### Dependency Injection
+
+DI solves modules coupling problem
+
+> DI forces us to build the dependency graph of the entire application by hand, making sure that we do it in the right order
+> This can become unmanageable when the number of modules to wire becomes too high.
+> Another pattern, called Inversion of Control, allows us to shift the responsibility of wiring the modules of an application to a third-party entity
+
+- constructor injection
+- function injection
+- property injection
+
