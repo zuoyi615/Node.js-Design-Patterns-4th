@@ -14,7 +14,7 @@ export class SafeCalculator {
       throw new Error('Division by 0')
     }
 
-    return this.#calculator.devide()
+    return this.#calculator.divide()
   }
 
   putValue(value: number) {
@@ -49,7 +49,7 @@ safeCalculator.putValue(2)
 console.log(safeCalculator.multiply()) // 12
 
 calculator.putValue(0)
-console.log(calculator.devide()) // Infinity
+console.log(calculator.divide()) // Infinity
 
 safeCalculator.clear()
 safeCalculator.putValue(4)

@@ -21,7 +21,7 @@ export class StackCalculator {
     this.#stack = []
   }
 
-  devide() {
+  divide() {
     const divisor = this.getValue()
     const dividend = this.getValue()
     if (dividend != null && divisor != null) {
