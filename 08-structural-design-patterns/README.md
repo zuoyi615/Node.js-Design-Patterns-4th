@@ -22,3 +22,14 @@ Proxy pattern isn't about proxy between classess, but involving wrapping an actu
 - Observability
 - Remote objects
 
+## Decorator
+
+Decorator is a structural design pattern that consists of dynamically augmenting the behavior of an existing object
+
+Decorator vs Proxy
+
+|operation|Decorator|Proxy|
+|:----|:----|:----|
+|add|Y|N|
+|modify|Y|Y|
+|delegate|Y|Y|
